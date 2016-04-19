@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="ru"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>PizzaApp.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pizza_service</a> &gt; <a href="index.source.html" class="el_package">com.anton_babak.pizza_service</a> &gt; <span class="el_source">PizzaApp.java</span></div><h1>PizzaApp.java</h1><pre class="source lang-java linenums">package com.anton_babak.pizza_service;
+
+import com.anton_babak.pizza_service.domain.Customer;
+import com.anton_babak.pizza_service.domain.Order;
+import com.anton_babak.pizza_service.infrostucture.ApplicationContext;
+import com.anton_babak.pizza_service.infrostucture.JavaConfigApplicationContext;
+import com.anton_babak.pizza_service.repository.pizza_rep.PizzaRepository;
+import com.anton_babak.pizza_service.service.OrderService;
+
+<span class="nc" id="L10">public class PizzaApp {</span>
+	public static void main(String[] args) throws Exception {
+
+<span class="nc" id="L13">        Customer customer = new Customer(1, &quot;Customer 1&quot;);</span>
+        Order order;
+        
+<span class="nc" id="L16">        ApplicationContext ac = new JavaConfigApplicationContext();</span>
+        // Inversion of Control container includes dependency injection(1 function), configuration and lifecycle
+        // Configure in IoC
+<span class="nc" id="L19">        PizzaRepository pizzaRepository = (PizzaRepository) ac.getBean(&quot;pizzaRepository&quot;);</span>
+<span class="nc" id="L20">        System.out.println(pizzaRepository.getPizzaByID(1));</span>
+        
+<span class="nc" id="L22">        OrderService orderService = (OrderService) ac.getBean(&quot;orderService&quot;);</span>
+<span class="nc" id="L23">        order = orderService.placeNewOrder(customer, 1, 2, 3);</span>
+<span class="nc" id="L24">        System.out.println(order);</span>
+
+<span class="nc" id="L26">}</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.4.201502262128</span></div></body></html>

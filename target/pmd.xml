@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pmd version="5.3.2" timestamp="2016-04-18T14:59:07.702">
+<file name="E:\Eclipse\pizza_service\src\main\java\com\anton_babak\pizza_service\SpringPizzaApp.java">
+<violation beginline="7" endline="7" begincolumn="1" endcolumn="54" rule="UnusedImports" ruleset="Import Statements" package="com.anton_babak.pizza_service" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/imports.html#UnusedImports" priority="4">
+Avoid unused imports such as 'org.springframework.context.ApplicationContext'
+</violation>
+<violation beginline="10" endline="10" begincolumn="1" endcolumn="78" rule="UnusedImports" ruleset="Import Statements" package="com.anton_babak.pizza_service" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/imports.html#UnusedImports" priority="4">
+Avoid unused imports such as 'org.springframework.core.convert.support.ConfigurableConversionService'
+</violation>
+<violation beginline="11" endline="11" begincolumn="1" endcolumn="60" rule="UnusedImports" ruleset="Import Statements" package="com.anton_babak.pizza_service" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/imports.html#UnusedImports" priority="4">
+Avoid unused imports such as 'org.springframework.core.env.ConfigurableEnvironment'
+</violation>
+<violation beginline="12" endline="12" begincolumn="1" endcolumn="71" rule="UnusedImports" ruleset="Import Statements" package="com.anton_babak.pizza_service" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/imports.html#UnusedImports" priority="4">
+Avoid unused imports such as 'org.springframework.core.env.MissingRequiredPropertiesException'
+</violation>
+<violation beginline="13" endline="13" begincolumn="1" endcolumn="59" rule="UnusedImports" ruleset="Import Statements" package="com.anton_babak.pizza_service" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/imports.html#UnusedImports" priority="4">
+Avoid unused imports such as 'org.springframework.core.env.MutablePropertySources'
+</violation>
+<violation beginline="15" endline="15" begincolumn="1" endcolumn="53" rule="UnusedImports" ruleset="Import Statements" package="com.anton_babak.pizza_service" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/imports.html#UnusedImports" priority="4">
+Avoid unused imports such as 'com.anton_babak.pizza_service.domain.Customer'
+</violation>
+<violation beginline="16" endline="16" begincolumn="1" endcolumn="50" rule="UnusedImports" ruleset="Import Statements" package="com.anton_babak.pizza_service" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/imports.html#UnusedImports" priority="4">
+Avoid unused imports such as 'com.anton_babak.pizza_service.domain.Order'
+</violation>
+<violation beginline="20" endline="20" begincolumn="1" endcolumn="58" rule="UnusedImports" ruleset="Import Statements" package="com.anton_babak.pizza_service" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/imports.html#UnusedImports" priority="4">
+Avoid unused imports such as 'com.anton_babak.pizza_service.service.OrderService'
+</violation>
+<violation beginline="21" endline="21" begincolumn="1" endcolumn="64" rule="UnusedImports" ruleset="Import Statements" package="com.anton_babak.pizza_service" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/imports.html#UnusedImports" priority="4">
+Avoid unused imports such as 'com.anton_babak.pizza_service.service.SimpleOrderService'
+</violation>
+</file>
+<file name="E:\Eclipse\pizza_service\src\main\java\com\anton_babak\pizza_service\infrostucture\ApplicationContext.java">
+<violation beginline="5" endline="5" begincolumn="16" endcolumn="60" rule="UnusedModifier" ruleset="Unused Code" package="com.anton_babak.pizza_service.infrostucture" class="ApplicationContext" method="getBean" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/unusedcode.html#UnusedModifier" priority="3">
+Avoid modifiers which are implied by the context
+</violation>
+</file>
+<file name="E:\Eclipse\pizza_service\src\main\java\com\anton_babak\pizza_service\infrostucture\BeanBuilder.java">
+<violation beginline="4" endline="4" begincolumn="1" endcolumn="43" rule="UnusedImports" ruleset="Import Statements" package="com.anton_babak.pizza_service.infrostucture" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/imports.html#UnusedImports" priority="4">
+Avoid unused imports such as 'java.lang.reflect.InvocationHandler'
+</violation>
+<violation beginline="7" endline="7" begincolumn="1" endcolumn="31" rule="UnusedImports" ruleset="Import Statements" package="com.anton_babak.pizza_service.infrostucture" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/imports.html#UnusedImports" priority="4">
+Avoid unused imports such as 'java.lang.reflect.Proxy'
+</violation>
+<violation beginline="8" endline="8" begincolumn="1" endcolumn="27" rule="UnusedImports" ruleset="Import Statements" package="com.anton_babak.pizza_service.infrostucture" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/imports.html#UnusedImports" priority="4">
+Avoid unused imports such as 'java.util.ArrayList'
+</violation>
+<violation beginline="9" endline="9" begincolumn="1" endcolumn="25" rule="UnusedImports" ruleset="Import Statements" package="com.anton_babak.pizza_service.infrostucture" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/imports.html#UnusedImports" priority="4">
+Avoid unused imports such as 'java.util.HashSet'
+</violation>
+<violation beginline="10" endline="10" begincolumn="1" endcolumn="31" rule="UnusedImports" ruleset="Import Statements" package="com.anton_babak.pizza_service.infrostucture" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/imports.html#UnusedImports" priority="4">
+Avoid unused imports such as 'java.util.LinkedHashSet'
+</violation>
+<violation beginline="11" endline="11" begincolumn="1" endcolumn="22" rule="UnusedImports" ruleset="Import Statements" package="com.anton_babak.pizza_service.infrostucture" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/imports.html#UnusedImports" priority="4">
+Avoid unused imports such as 'java.util.List'
+</violation>
+</file>
+<file name="E:\Eclipse\pizza_service\src\main\java\com\anton_babak\pizza_service\infrostucture\BenchmarkBeanProxy.java">
+<violation beginline="4" endline="4" begincolumn="1" endcolumn="51" rule="UnusedImports" ruleset="Import Statements" package="com.anton_babak.pizza_service.infrostucture" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/imports.html#UnusedImports" priority="4">
+Avoid unused imports such as 'java.lang.reflect.InvocationTargetException'
+</violation>
+<violation beginline="7" endline="7" begincolumn="1" endcolumn="27" rule="UnusedImports" ruleset="Import Statements" package="com.anton_babak.pizza_service.infrostucture" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/imports.html#UnusedImports" priority="4">
+Avoid unused imports such as 'java.util.ArrayList'
+</violation>
+<violation beginline="8" endline="8" begincolumn="1" endcolumn="25" rule="UnusedImports" ruleset="Import Statements" package="com.anton_babak.pizza_service.infrostucture" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/imports.html#UnusedImports" priority="4">
+Avoid unused imports such as 'java.util.HashSet'
+</violation>
+<violation beginline="9" endline="9" begincolumn="1" endcolumn="31" rule="UnusedImports" ruleset="Import Statements" package="com.anton_babak.pizza_service.infrostucture" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/imports.html#UnusedImports" priority="4">
+Avoid unused imports such as 'java.util.LinkedHashSet'
+</violation>
+<violation beginline="10" endline="10" begincolumn="1" endcolumn="22" rule="UnusedImports" ruleset="Import Statements" package="com.anton_babak.pizza_service.infrostucture" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/imports.html#UnusedImports" priority="4">
+Avoid unused imports such as 'java.util.List'
+</violation>
+</file>
+<file name="E:\Eclipse\pizza_service\src\main\java\com\anton_babak\pizza_service\repository\pizza_rep\InMemPizzaRepository.java">
+<violation beginline="7" endline="7" begincolumn="1" endcolumn="60" rule="UnusedImports" ruleset="Import Statements" package="com.anton_babak.pizza_service.repository.pizza_rep" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/imports.html#UnusedImports" priority="4">
+Avoid unused imports such as 'com.anton_babak.pizza_service.domain.Pizza.PizzaType'
+</violation>
+</file>
+<file name="E:\Eclipse\pizza_service\src\main\java\com\anton_babak\pizza_service\repository\pizza_rep\PostgreSQLPizzaRepository.java">
+<violation beginline="58" endline="58" begincolumn="96" endcolumn="96" rule="EmptyStatementNotInLoop" ruleset="Empty Code" package="com.anton_babak.pizza_service.repository.pizza_rep" class="PostgreSQLPizzaRepository" method="updatePizza" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/empty.html#EmptyStatementNotInLoop" priority="3">
+An empty statement (semicolon) not part of a loop
+</violation>
+</file>
+<file name="E:\Eclipse\pizza_service\src\main\java\com\anton_babak\pizza_service\service\SimpleOrderService.java">
+<violation beginline="6" endline="6" begincolumn="1" endcolumn="48" rule="UnusedImports" ruleset="Import Statements" package="com.anton_babak.pizza_service.service" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/imports.html#UnusedImports" priority="4">
+Avoid unused imports such as 'org.springframework.beans.BeansException'
+</violation>
+<violation beginline="7" endline="7" begincolumn="1" endcolumn="54" rule="UnusedImports" ruleset="Import Statements" package="com.anton_babak.pizza_service.service" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/imports.html#UnusedImports" priority="4">
+Avoid unused imports such as 'org.springframework.context.ApplicationContext'
+</violation>
+<violation beginline="8" endline="8" begincolumn="1" endcolumn="59" rule="UnusedImports" ruleset="Import Statements" package="com.anton_babak.pizza_service.service" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/imports.html#UnusedImports" priority="4">
+Avoid unused imports such as 'org.springframework.context.ApplicationContextAware'
+</violation>
+<violation beginline="34" endline="34" begincolumn="36" endcolumn="53" rule="UnusedPrivateField" ruleset="Unused Code" package="com.anton_babak.pizza_service.service" class="SimpleOrderService" variable="customerRepository" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/unusedcode.html#UnusedPrivateField" priority="3">
+Avoid unused private fields such as 'customerRepository'.
+</violation>
+</file>
+</pmd>

@@ -1,0 +1,26 @@
+GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
+pizza_service,com.anton_babak.pizza_service.domain,Customer,114,49,13,1,33,18,17,9,10,9
+pizza_service,com.anton_babak.pizza_service.domain,Pizza,93,48,14,0,33,10,17,4,10,4
+pizza_service,com.anton_babak.pizza_service.domain,Customer.AccumulativeCard,16,30,0,0,3,10,2,5,2,5
+pizza_service,com.anton_babak.pizza_service.domain,Pizza.PizzaType,9,39,0,0,0,2,2,2,2,2
+pizza_service,com.anton_babak.pizza_service.domain,Order,143,180,15,11,37,48,17,21,8,17
+pizza_service,com.anton_babak.pizza_service.domain,Order.OrderStatus,9,49,0,0,0,2,2,2,2,2
+pizza_service,com.anton_babak.pizza_service.repository.pizza_rep,PostgreSQLPizzaRepository.new RowMapper() {...},39,0,0,0,8,0,2,0,2,0
+pizza_service,com.anton_babak.pizza_service.repository.pizza_rep,PostgreSQLPizzaRepository,90,0,0,0,14,0,6,0,6,0
+pizza_service,com.anton_babak.pizza_service.repository.pizza_rep,InMemPizzaRepository,14,30,2,2,9,8,8,3,6,3
+pizza_service,com.anton_babak.pizza_service.repository,InMemOrderRepository,4,19,0,0,2,6,1,3,1,3
+pizza_service,com.anton_babak.pizza_service.repository,InMemCustomerRepository,1,34,1,3,1,8,1,3,0,2
+pizza_service,com.anton_babak.pizza_service.service,SimpleOrderService,19,63,2,2,5,15,3,4,2,3
+pizza_service,com.anton_babak.pizza_service.service,CreatePizzaService,0,11,0,0,0,2,0,2,0,2
+pizza_service,com.anton_babak.pizza_service.infrostucture,BeanBuilder,178,0,14,0,36,0,18,0,11,0
+pizza_service,com.anton_babak.pizza_service.infrostucture,ServiceLocator,37,0,2,0,12,0,5,0,4,0
+pizza_service,com.anton_babak.pizza_service.infrostucture,JavaConfig,32,0,0,0,7,0,2,0,2,0
+pizza_service,com.anton_babak.pizza_service.infrostucture,AnnotationInvocationHandler,6,56,1,1,1,12,1,3,0,3
+pizza_service,com.anton_babak.pizza_service.infrostucture,BenchmarkProxyBeanPreProcessor,3,11,0,0,2,3,0,3,0,3
+pizza_service,com.anton_babak.pizza_service.infrostucture,BenchmarkBeanProxy,0,77,1,7,0,18,1,7,0,4
+pizza_service,com.anton_babak.pizza_service.infrostucture,JavaConfigApplicationContext,60,0,4,0,16,0,4,0,2,0
+pizza_service,com.anton_babak.pizza_service,SpringPizzaApp,70,0,0,0,14,0,2,0,2,0
+pizza_service,com.anton_babak.pizza_service,JPAWithoutSpringApp,4,0,0,0,2,0,2,0,2,0
+pizza_service,com.anton_babak.pizza_service,PizzaApp,55,0,0,0,9,0,2,0,2,0
+pizza_service,com.anton_babak.pizza_service.domain.discounts,PizzasNumberDiscount,46,0,4,0,10,0,5,0,3,0
+pizza_service,com.anton_babak.pizza_service.domain.discounts,CustomerAccCardDiscount,46,0,4,0,9,0,5,0,3,0

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="ru"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>InMemPizzaRepository.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pizza_service</a> &gt; <a href="index.source.html" class="el_package">com.anton_babak.pizza_service.repository.pizza_rep</a> &gt; <span class="el_source">InMemPizzaRepository.java</span></div><h1>InMemPizzaRepository.java</h1><pre class="source lang-java linenums">package com.anton_babak.pizza_service.repository.pizza_rep;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import com.anton_babak.pizza_service.domain.Pizza;
+import com.anton_babak.pizza_service.domain.Pizza.PizzaType;
+import com.anton_babak.pizza_service.infrostucture.Benchmark;
+import com.anton_babak.pizza_service.infrostucture.PostConstruct;
+
+public class InMemPizzaRepository implements PizzaRepository{
+
+	private List&lt;Pizza&gt; pizzas;
+	
+	public List&lt;Pizza&gt; getPizzas() {
+<span class="nc" id="L16">		return pizzas;</span>
+	}
+
+	public void setPizzas(List&lt;Pizza&gt; pizzas) {
+<span class="fc" id="L20">		this.pizzas = pizzas;</span>
+<span class="fc" id="L21">	}</span>
+
+<span class="fc" id="L23">	public InMemPizzaRepository() {</span>
+<span class="fc" id="L24">		pizzas = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L25">	}</span>
+	
+	@PostConstruct
+	public void cookPizzas(){
+//		pizzas.add(new Pizza(1, &quot;Pizza 1&quot;, 30.0, PizzaType.VEGETARIAN));
+//		pizzas.add(new Pizza(2, &quot;Pizza 2&quot;, 10.0, PizzaType.MEAT));
+//		pizzas.add(new Pizza(3, &quot;Pizza 3&quot;, 10.0, PizzaType.SEA));
+<span class="nc" id="L32">	}</span>
+	
+	public void init(){
+<span class="nc" id="L35">		System.out.println(&quot;Init1&quot;);</span>
+<span class="nc" id="L36">	}</span>
+	
+	@Override
+	@Benchmark
+	public Pizza getPizzaByID(Integer id) {
+<span class="pc bpc" id="L41" title="1 of 2 branches missed.">		for (Pizza pizza: pizzas){</span>
+<span class="pc bpc" id="L42" title="1 of 2 branches missed.">			if (pizza.getId().equals(id)){</span>
+<span class="fc" id="L43">				return pizza;</span>
+			}
+<span class="nc" id="L45">		}</span>
+<span class="nc" id="L46">		return null;</span>
+	}
+
+	@Override
+	public void createPizza(Pizza pizza) {
+		// TODO Auto-generated method stub
+		
+<span class="nc" id="L53">	}</span>
+
+	@Override
+	public void updatePizza(Pizza pizza) {
+		// TODO Auto-generated method stub
+		
+<span class="nc" id="L59">	}</span>
+
+	@Override
+	public void deletePizza(Pizza pizza) {
+		// TODO Auto-generated method stub
+		
+<span class="nc" id="L65">	}</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.4.201502262128</span></div></body></html>

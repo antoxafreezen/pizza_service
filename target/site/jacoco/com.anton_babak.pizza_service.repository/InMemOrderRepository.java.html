@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="ru"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>InMemOrderRepository.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pizza_service</a> &gt; <a href="index.source.html" class="el_package">com.anton_babak.pizza_service.repository</a> &gt; <span class="el_source">InMemOrderRepository.java</span></div><h1>InMemOrderRepository.java</h1><pre class="source lang-java linenums">package com.anton_babak.pizza_service.repository;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import com.anton_babak.pizza_service.domain.Order;
+
+public class InMemOrderRepository implements OrderRepository{
+
+	private List&lt;Order&gt; orders;
+	
+<span class="fc" id="L12">	public InMemOrderRepository() {</span>
+<span class="fc" id="L13">		orders = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L14">	}</span>
+	
+	@Override
+	public Long saveOrder(Order order) {
+<span class="fc" id="L18">		orders.add(order);</span>
+<span class="fc" id="L19">		return order.getId();</span>
+	}
+
+	public List&lt;Order&gt; getOrders() {
+<span class="fc" id="L23">		return orders;</span>
+	}
+
+	public void setOrders(List&lt;Order&gt; orders) {
+<span class="nc" id="L27">		this.orders = orders;</span>
+<span class="nc" id="L28">	}</span>
+
+	
+	
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.4.201502262128</span></div></body></html>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="ru"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>BenchmarkBeanProxy.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pizza_service</a> &gt; <a href="index.source.html" class="el_package">com.anton_babak.pizza_service.infrostucture</a> &gt; <span class="el_source">BenchmarkBeanProxy.java</span></div><h1>BenchmarkBeanProxy.java</h1><pre class="source lang-java linenums">package com.anton_babak.pizza_service.infrostucture;
+
+import java.lang.reflect.InvocationHandler;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+import java.lang.reflect.Proxy;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.LinkedHashSet;
+import java.util.List;
+
+import org.springframework.util.ClassUtils;
+
+public class BenchmarkBeanProxy {
+	
+	private Object bean;
+	private Class&lt;?&gt; clazz;
+	
+	
+	
+	public BenchmarkBeanProxy(Object bean) {
+<span class="fc" id="L22">		super();</span>
+<span class="fc" id="L23">		this.bean = bean;</span>
+<span class="fc" id="L24">		this.clazz = bean.getClass();</span>
+<span class="fc" id="L25">	}</span>
+
+	Object createBeanProxy() throws Exception {
+<span class="fc" id="L28">		Method[] methods = clazz.getMethods();</span>
+<span class="fc bfc" id="L29" title="All 2 branches covered.">		if (isNecessaryToCreateProxy(methods)) {</span>
+<span class="fc" id="L30">			InvocationHandler handler = new AnnotationInvocationHandler(bean);</span>
+<span class="fc" id="L31">			Class&lt;?&gt;[] interfaces = getAllInterfaces(bean);</span>
+<span class="fc" id="L32">			return Proxy.newProxyInstance(clazz.getClassLoader(), interfaces, handler);</span>
+		}
+<span class="fc" id="L34">		return bean;</span>
+	}
+
+	private Boolean isNecessaryToCreateProxy(Method[] methods) {
+<span class="fc" id="L38">		Boolean needCreateProxy = false;</span>
+<span class="fc bfc" id="L39" title="All 2 branches covered.">		for (Method method : methods) {</span>
+<span class="fc" id="L40">			Benchmark benchmark = method.getAnnotation(Benchmark.class);</span>
+<span class="pc bpc" id="L41" title="1 of 4 branches missed.">			if (benchmark != null &amp;&amp; benchmark.active()) {</span>
+<span class="fc" id="L42">				needCreateProxy = true;</span>
+<span class="fc" id="L43">				break;</span>
+			}
+		}
+<span class="fc" id="L46">		return needCreateProxy;</span>
+	}
+
+	private static Class&lt;?&gt;[] getAllInterfaces(Object obj) {
+<span class="fc" id="L50">        return ClassUtils.getAllInterfaces(obj);       </span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.4.201502262128</span></div></body></html>

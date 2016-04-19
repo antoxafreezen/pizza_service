@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans profile="dev" xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean name="pizzaRepository"
+		class="com.anton_babak.pizza_service.repository.pizza_rep.InMemPizzaRepository">
+		<property name="pizzas">
+			<list>
+				<bean class="com.anton_babak.pizza_service.domain.Pizza">
+					<constructor-arg index="0" value = "1" />
+					<constructor-arg index="1" value = "Pizza 1" />
+					<constructor-arg index="2" value = "2.4" />
+					<constructor-arg index="3" value="SEA" />
+				</bean>
+				<bean class="com.anton_babak.pizza_service.domain.Pizza">
+					<constructor-arg index="0" value = "2" />
+					<constructor-arg index="1" value = "Pizza 2" />
+					<constructor-arg index="2" value = "2.5" />
+					<constructor-arg index="3" value="MEAT" />
+				</bean>
+			</list>
+		</property>
+	</bean>
+
+
+	<bean class="com.anton_babak.pizza_service.repository.InMemOrderRepository"
+		name="orderRepository" />
+
+	<bean id="createPizzaBean"
+		class="com.anton_babak.pizza_service.service.CreatePizzaService" />
+	<bean class = "com.anton_babak.pizza_service.domain.Customer" />
+	<bean class = "com.anton_babak.pizza_service.infrostucture.BenchmarkProxyBeanPreProcessor" />
+
+	<!-- <bean id="customer" class="com.anton_babak.pizza_service.domain.Customer">
+		<constructor-arg value="2"></constructor-arg>
+		<constructor-arg value="ecd"></constructor-arg>
+	</bean> -->
+
+
+
+</beans>

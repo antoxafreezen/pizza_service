@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="ru"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>CustomerAccCardDiscount.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pizza_service</a> &gt; <a href="index.source.html" class="el_package">com.anton_babak.pizza_service.domain.discounts</a> &gt; <span class="el_source">CustomerAccCardDiscount.java</span></div><h1>CustomerAccCardDiscount.java</h1><pre class="source lang-java linenums">package com.anton_babak.pizza_service.domain.discounts;
+
+import com.anton_babak.pizza_service.domain.Order;
+
+<span class="nc" id="L5">public class CustomerAccCardDiscount implements Discountable {</span>
+	
+<span class="nc" id="L7">	private final static Double ORDER_COST_DISCOUNT = 0.3;</span>
+<span class="nc" id="L8">	private final static Double CARD_DISCOUNT = 0.1;</span>
+	
+	@Override
+	public Double calculateDiscount(Order order) {
+<span class="nc bnc" id="L12" title="All 2 branches missed.">		if(order.getCustomer().getCard().isActive()){</span>
+<span class="nc" id="L13">			Double maxDiscount = order.getOrderCost() * ORDER_COST_DISCOUNT;</span>
+<span class="nc" id="L14">			Double discount = order.getCustomer().getCard().getCash() * CARD_DISCOUNT;</span>
+<span class="nc bnc" id="L15" title="All 2 branches missed.">			if (discount &gt; maxDiscount) return maxDiscount;</span>
+<span class="nc" id="L16">			return discount;</span>
+		}
+<span class="nc" id="L18">		return 0D;</span>
+	}
+	
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.4.201502262128</span></div></body></html>

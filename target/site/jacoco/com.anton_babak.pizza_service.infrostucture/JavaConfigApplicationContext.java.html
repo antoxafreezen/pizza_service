@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="ru"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>JavaConfigApplicationContext.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pizza_service</a> &gt; <a href="index.source.html" class="el_package">com.anton_babak.pizza_service.infrostucture</a> &gt; <span class="el_source">JavaConfigApplicationContext.java</span></div><h1>JavaConfigApplicationContext.java</h1><pre class="source lang-java linenums">package com.anton_babak.pizza_service.infrostucture;
+
+import java.util.HashMap;
+import java.util.Map;
+
+<span class="nc" id="L6">public class JavaConfigApplicationContext implements ApplicationContext {</span>
+
+<span class="nc" id="L8">	private final Config config = new JavaConfig();</span>
+<span class="nc" id="L9">	private final Map&lt;String, Object&gt; context = new HashMap&lt;&gt;();</span>
+
+	@Override
+	public Object getBean(String beanName) throws Exception {
+<span class="nc bnc" id="L13" title="All 2 branches missed.">		if (context.containsKey(beanName)) {</span>
+<span class="nc" id="L14">			return context.get(beanName);</span>
+		}
+
+<span class="nc" id="L17">		Class&lt;?&gt; clazz = config.getImpl(beanName);</span>
+
+<span class="nc bnc" id="L19" title="All 2 branches missed.">		if (clazz == null) {</span>
+<span class="nc" id="L20">			throw new RuntimeException(&quot;Bean not found&quot;);</span>
+		}
+
+		// Object bean = createBean(clazz);
+<span class="nc" id="L24">		BeanBuilder builder = new BeanBuilder(clazz , this);</span>
+<span class="nc" id="L25">		builder.createBean();</span>
+<span class="nc" id="L26">		builder.callPostConstructMethod();</span>
+<span class="nc" id="L27">		builder.callInitBuilder();</span>
+<span class="nc" id="L28">		builder.createBeanProxy();</span>
+		
+
+<span class="nc" id="L31">		Object bean = builder.build();</span>
+<span class="nc" id="L32">		context.put(beanName, bean);</span>
+<span class="nc" id="L33">		return bean;</span>
+	}
+		
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.4.201502262128</span></div></body></html>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="ru"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>AnnotationInvocationHandler.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pizza_service</a> &gt; <a href="index.source.html" class="el_package">com.anton_babak.pizza_service.infrostucture</a> &gt; <span class="el_source">AnnotationInvocationHandler.java</span></div><h1>AnnotationInvocationHandler.java</h1><pre class="source lang-java linenums">package com.anton_babak.pizza_service.infrostucture;
+
+import java.lang.reflect.InvocationHandler;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+
+public class AnnotationInvocationHandler implements InvocationHandler{
+
+	private Object bean;
+	private Class&lt;?&gt; clazz;
+	
+	
+	
+	public AnnotationInvocationHandler(Object bean) {
+<span class="fc" id="L15">		super();</span>
+<span class="fc" id="L16">		this.bean = bean;</span>
+<span class="fc" id="L17">		this.clazz = bean.getClass();</span>
+<span class="fc" id="L18">	}</span>
+
+
+
+	@Override
+	public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
+<span class="fc" id="L24">		Class&lt;?&gt;[] parameters = method.getParameterTypes();</span>
+<span class="pc bpc" id="L25" title="1 of 2 branches missed.">		if (clazz.getMethod(method.getName(), parameters).getAnnotation(Benchmark.class) != null) {</span>
+<span class="fc" id="L26">			return calculateRunTime(method, args);</span>
+		} else
+<span class="nc" id="L28">			return method.invoke(bean, args);</span>
+	}
+
+
+
+	private Object calculateRunTime(Method method, Object[] args)
+			throws IllegalAccessException, InvocationTargetException {
+<span class="fc" id="L35">		Long a = System.nanoTime();</span>
+<span class="fc" id="L36">		Object o = method.invoke(bean, args);</span>
+<span class="fc" id="L37">		System.out</span>
+<span class="fc" id="L38">				.println(&quot;Runtime for method &quot; + method.getName() + &quot;: &quot; + (System.nanoTime() - a));</span>
+<span class="fc" id="L39">		return o;</span>
+	}
+	
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.4.201502262128</span></div></body></html>

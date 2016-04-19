@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="ru"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>JavaConfig.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pizza_service</a> &gt; <a href="index.source.html" class="el_package">com.anton_babak.pizza_service.infrostucture</a> &gt; <span class="el_source">JavaConfig.java</span></div><h1>JavaConfig.java</h1><pre class="source lang-java linenums">package com.anton_babak.pizza_service.infrostucture;
+
+import java.util.HashMap;
+import java.util.Map;
+
+import com.anton_babak.pizza_service.repository.InMemOrderRepository;
+import com.anton_babak.pizza_service.repository.pizza_rep.InMemPizzaRepository;
+import com.anton_babak.pizza_service.service.SimpleOrderService;
+
+<span class="nc" id="L10">public class JavaConfig implements Config{</span>
+
+<span class="nc" id="L12">	private Map&lt;String, Class&lt;?&gt;&gt; beans = new HashMap&lt;&gt;();</span>
+	
+	{
+<span class="nc" id="L15">		beans.put(&quot;orderRepository&quot;, InMemOrderRepository.class);</span>
+<span class="nc" id="L16">		beans.put(&quot;pizzaRepository&quot;, InMemPizzaRepository.class);</span>
+<span class="nc" id="L17">		beans.put(&quot;orderService&quot;, SimpleOrderService.class);</span>
+<span class="nc" id="L18">	}</span>
+	
+	@Override
+	public Class&lt;?&gt; getImpl(String bean) {
+<span class="nc" id="L22">		return beans.get(bean);</span>
+	}
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.4.201502262128</span></div></body></html>

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="ru"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>SimpleOrderService.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pizza_service</a> &gt; <a href="index.source.html" class="el_package">com.anton_babak.pizza_service.service</a> &gt; <span class="el_source">SimpleOrderService.java</span></div><h1>SimpleOrderService.java</h1><pre class="source lang-java linenums">package com.anton_babak.pizza_service.service;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.springframework.beans.BeansException;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.ApplicationContextAware;
+
+import com.anton_babak.pizza_service.domain.Customer;
+import com.anton_babak.pizza_service.domain.Order;
+import com.anton_babak.pizza_service.domain.Pizza;
+import com.anton_babak.pizza_service.infrostucture.Benchmark;
+import com.anton_babak.pizza_service.repository.CustomerRepository;
+import com.anton_babak.pizza_service.repository.InMemCustomerRepository;
+import com.anton_babak.pizza_service.repository.OrderRepository;
+import com.anton_babak.pizza_service.repository.pizza_rep.PizzaRepository;
+
+public class SimpleOrderService implements OrderService/*, ApplicationContextAware*/ {
+	
+	//private ApplicationContext appContext;
+	
+	/*public ApplicationContext getAppContext() {
+		return appContext;
+	}
+
+	public void setOrder(ApplicationContext appContext) {
+		this.appContext = appContext;
+	}*/
+
+	//private ServiceLocator locator = ServiceLocator.getInstance();
+	private OrderRepository orderRepository;// = (OrderRepository) locator.lookup(&quot;orderRepository&quot;);
+	private PizzaRepository pizzaRepository;// = (PizzaRepository) locator.lookup(&quot;pizzaRepository&quot;);
+<span class="fc" id="L34">	private CustomerRepository customerRepository = new InMemCustomerRepository();</span>
+
+<span class="fc" id="L36">	public SimpleOrderService(OrderRepository orderRepository, PizzaRepository pizzaRepository) {</span>
+<span class="fc" id="L37">		this.orderRepository = orderRepository;</span>
+<span class="fc" id="L38">		this.pizzaRepository = pizzaRepository;</span>
+<span class="fc" id="L39">	}</span>
+	
+	@Override
+	@Benchmark
+	public Order placeNewOrder(Customer customer, Integer ... pizzasID) {
+<span class="fc" id="L44">		List&lt;Pizza&gt; pizzas = pizzasByArrOfId(pizzasID);</span>
+<span class="fc" id="L45">        Order newOrder = createOrder(/*customerRepository.checkCustomer(customer), pizzas*/);</span>
+        
+<span class="fc" id="L47">        newOrder.setCustomer(customer);</span>
+<span class="fc" id="L48">        newOrder.setPizzas(pizzas);</span>
+<span class="fc" id="L49">        orderRepository.saveOrder(newOrder);  </span>
+<span class="fc" id="L50">        return newOrder;</span>
+
+	}
+	
+	@Override
+	public void addPizzasToOrder(Order order, Integer pizzaID, Integer count) {
+<span class="nc" id="L56">		Pizza pizza = pizzaRepository.getPizzaByID(pizzaID);</span>
+<span class="nc bnc" id="L57" title="All 2 branches missed.">		for (int i = 0; i &lt; count; i++){</span>
+<span class="nc" id="L58">			order.addPizza(pizza);</span>
+		}
+		
+<span class="nc" id="L61">	}</span>
+<span class="nc" id="L62">	protected Order createOrder(/*Customer customer, List&lt;Pizza&gt; pizzas*/){return null;}</span>
+		//Order newOrder = new Order(customer, pizzas);
+		/*Order order = appContext.getBean(&quot;order&quot;, Order.class);
+		return order;*/
+	
+	private List&lt;Pizza&gt; pizzasByArrOfId(Integer... pizzasID) {
+<span class="fc" id="L68">		List&lt;Pizza&gt; pizzas = new ArrayList&lt;&gt;();</span>
+<span class="fc bfc" id="L69" title="All 2 branches covered.">        for(Integer id : pizzasID){</span>
+<span class="fc" id="L70">                pizzas.add(pizzaRepository.getPizzaByID(id));  </span>
+        }
+<span class="fc" id="L72">		return pizzas;</span>
+	}
+
+	/*@Override
+	public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
+		this.appContext = applicationContext;
+		
+	}*/
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.4.201502262128</span></div></body></html>
